@@ -56,8 +56,11 @@ def which(args):
 	return message
 
 def whoDND(ctx):
-	if(random.randint(0, 50) == 37):
+	roll = random.randint(1, 100)
+	if(roll >= 1 and roll <= 2):
 		return random.choice(chatResponses.who_responses_dnd_rare)
+	elif(roll >= 3 and roll <= 13):
+		return random.choice(chatResponses.who_responses_dnd_uncommon)
 	else:
 		return random.choice(chatResponses.who_responses_dnd)
 
@@ -103,3 +106,16 @@ def whoMembers(ctx):
 			members.append(member.name)
 	
 	return random.choice(members)
+
+def loadWisdom():
+	fname = "./wisdom.txt"
+	
+	wisdomArray = []
+
+	with open(fname, 'r', encoding='utf-8') as f:
+		while 1:
+			line = f.readline()
+			if not line: break
+			wisdomArray.append(line)
+
+	return wisdomArray

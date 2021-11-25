@@ -1,3 +1,5 @@
+from facePoints import facePoints
+
 model_path = "shape_predictor_68_face_landmarks.dat"
 
 frontal_face_detector = dlib.get_frontal_face_detector()
